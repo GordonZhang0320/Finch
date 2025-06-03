@@ -1,38 +1,37 @@
-public class FinchTest {
-   public static void main(String[] args) {
-       Finch f = new Finch();
-       int playerTurns =1;
-       boolean corner=false;
-      
-      printPlayer(f,playerTurns);
-      while(!corner) {
-   	   f.setMove("F", 1, 1);
-   	   if (f.getButton("A")){
-   		   corner=true;
-   	   }
-      }
-     
-      
-      
-      
-     
-      
-      
-   }
-  
-   public static void printPlayer(Finch f, int playerTurns) {
-   	if (playerTurns%4==1) {
-       	f.print("1");
-       } else if (playerTurns%4==2) {
-       	f.print("2");
-       } else if (playerTurns%4==3) {
-       	f.print("3");
-       } else {
-       	f.print("4");
-       }
-   }
-  
-  
-  
+public class Move{
+	public static void main(String[] args) {
+		Finch f = new Finch();
+		boolean corner=false;
+		int playerNum=1;
+	    
+		f.stopAll();
+		while(true) {
+			
+		    while(!corner) {
+		    	f.setMotors(10, 10);
+		    	if (f.getLine("R")<90) {
+		    		f.setMotors(0, 0);
+		    		corner=true;
+		    	}
+		    }
+		    
+		    f.playNote(50,2);
+		    f.setBeak(playerNum, playerNum, playerNum);
+		    
+		    while(corner) {
+		    	if (f.getButton("A")) {
+		    		playerNum++;
+		    		f.setMotors(90,0);
+		    		corner=false;
+		    	}
+		    }
+		    
+		    if (playerNum>4) {
+		    	playerNum=1;
+		    }
+		    
+		}
+	    
+	       
+	}
 }
-
