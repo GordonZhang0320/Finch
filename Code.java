@@ -22,12 +22,13 @@ public class Move{
 		    }
 		    
 		    
-		    if(f.getButton("B")) {
-	    		players--;
-	    	}
+		    
 		    while(corner) {
 		    	
-		    		
+		    	if(f.getButton("B")) {
+		    		players--;
+		    	}
+			    
 		    	if (f.getButton("A")) {
 		    		playerNum++;
 		    		f.setTurn("R", 90 ,5);
