@@ -9,7 +9,7 @@ public class Move{
 		while(true) {
 			
 			if (players==1) {
-				f.print(playerNum +"Wins!");
+				f.print(playerNum +"Wins");
 			}
 			
 		    while(!corner) {
